@@ -56,9 +56,9 @@
 
     <main role="main">
     <div class="container">
-        <div class="input-group my-4">
-            <input type="text" class="form-control" placeholder="Add a word" aria-label="word" aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add!!</button>
+        <div id="addWord-div" class="input-group my-4">
+            <input id="addWord-input" type="text" class="form-control" placeholder="Add a word" aria-label="word" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="submit" id="btn-addWord">Add!!</button>
         </div>
     </div>
 
@@ -69,6 +69,7 @@
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
                 <div class="card-body">
+                    <h4 id="card-addWord"></h4>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
@@ -185,6 +186,18 @@
 
       <script>
           $(document).ready(function(){
+            
+            $('#addWord-div').submit(function(event){
+                event.preventDefault();
+                let textInput = $('#addWord-input').val();
+                $('#card-addWord').html(textInput);
+            });
+
+/*
+            $('input').val("input value değiştirilidi");
+             console.log($('input').val());
+*/
+
             $(window).scroll(function(){
                 if($(window).scrollTop() > 100) {
                     $('.backtotop').fadeIn();
